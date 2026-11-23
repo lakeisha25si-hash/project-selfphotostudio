@@ -2,8 +2,111 @@
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-sans: 'Figtree', sans-serif;
+
+    --color-paper: #f4f3ed;
+    --color-surface: #fffefa;
+    --color-ink: #252b27;
+    --color-muted: #777d75;
+    --color-olive: #68765e;
+    --color-olive-dark: #465541;
+    --color-olive-light: #e4e9dc;
+    --color-accent: #d65b46;
+    --color-line: #dedfd5;
+}
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font-sans);
+        margin: 0;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: var(--font-display);
+        letter-spacing: -0.04em;
+    }
+
+    button, a {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+@layer components {
+    .site-container {
+        width: min(1180px, calc(100% - 40px));
+        margin-inline: auto;
+    }
+
+    .btn-primary {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        padding: 13px 23px;
+        background: var(--color-olive-dark);
+        color: white;
+        font-weight: 600;
+        transition: .2s ease;
+    }
+
+    .btn-primary:hover {
+        background: var(--color-ink);
+        transform: translateY(-2px);
+    }
+
+    .btn-outline {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--color-line);
+        border-radius: 999px;
+        padding: 12px 22px;
+        font-weight: 600;
+        transition: .2s ease;
+    }
+
+    .btn-outline:hover {
+        border-color: var(--color-olive);
+        background: var(--color-olive-light);
+    }
+
+    .form-field {
+        width: 100%;
+        border: 1px solid var(--color-line);
+        border-radius: 13px;
+        background: white;
+        padding: 13px 15px;
+        outline: none;
+        transition: .2s ease;
+    }
+
+    .form-field:focus {
+        border-color: var(--color-olive);
+        box-shadow: 0 0 0 3px rgb(104 118 94 / 12%);
+    }
+
+    .eyebrow {
+        color: var(--color-olive);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+    }
+
+    .editorial-card {
+        border: 1px solid var(--color-line);
+        border-radius: 22px;
+        background: var(--color-surface);
+    }
 }
